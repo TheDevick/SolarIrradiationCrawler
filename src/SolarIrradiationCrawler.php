@@ -44,6 +44,9 @@ class SolarIrradiationCrawler
      */
     public function crawl(string $latitude, string $longitude): array
     {
+        $latitude = str_replace('-', '', $latitude);
+        $longitude = str_replace('-', '', $longitude);
+
         $response = $this->client->post(
             'https://www.cresesb.cepel.br/index.php',
             [
